@@ -33,7 +33,7 @@ Servo wrist_flex;
 Servo wrist_rotate; 
 
 rcl_subscription_t subscriber;
-sensor_msgs__msg__JointState * joint_states_msg;
+sensor_msgs__msg__JointState * msg;
 rclc_executor_t executor;
 rclc_support_t support;
 rcl_allocator_t allocator;
@@ -52,26 +52,26 @@ void error_loop(){
 
 void subscription_callback(const void * msgin )
 {  
- 	const sensor_msgs__msg__JointState * joint_states_msg = (const sensor_msgs__msg__JointState *)msgin;
-
+ 	const sensor_msgs__msg__JointState * msg = (const sensor_msgs__msg__JointState *)msgin;
+    shoulder.write(150);
     // Shoulder starts at 80
-    if (joint_states_msg->position.data[0] > 79){
-      shoulder.write(joint_states_msg->position.data[0]);
+    if (msg->position.data[0] > 79){
+      shoulder.write(msg->position.data[0]);
     }
-    if (joint_states_msg->position.data[1] > -1){
-      forearm.write(joint_states_msg->position.data[1]);
+    if (msg->position.data[1] > -1){
+      forearm.write(msg->position.data[1]);
     }
-    if (joint_states_msg->position.data[2] > -1){
-      elbow.write(joint_states_msg->position.data[2]);
+    if (msg->position.data[2] > -1){
+      elbow.write(msg->position.data[2]);
     }
-    if (joint_states_msg->position.data[3] > -1){
-      arm_rotate.write(joint_states_msg->position.data[3]);
+    if (msg->position.data[3] > -1){
+      arm_rotate.write(msg->position.data[3]);
     }
-    if (joint_states_msg->position.data[4] > -1){
-      wrist_flex.write(joint_states_msg->position.data[4]);
+    if (msg->position.data[4] > -1){
+      wrist_flex.write(msg->position.data[4]);
     }
-    if (joint_states_msg->position.data[5] > -1){
-      wrist_rotate.write(joint_states_msg->position.data[5]);
+    if (msg->position.data[5] > -1){
+      wrist_rotate.write(msg->position.data[5]);
     }
   
 }
@@ -105,12 +105,12 @@ void setup() {
   RCCHECK(rclc_subscription_init_default(
     &subscriber,
     &node,
-    ROSIDL_GET_MSG_TYPE_SUPPORT(sensor_msgs, joint_states_msg, JointState),
+    ROSIDL_GET_MSG_TYPE_SUPPORT(sensor_msgs, msg, JointState),
     "eecue_6dof_arm_subscriber"));
 
   // create executor
   RCCHECK(rclc_executor_init(&executor, &support.context, 1, &allocator));
-  RCCHECK(rclc_executor_add_subscription(&executor, &subscriber, &joint_states_msg, &subscription_callback, ON_NEW_DATA));
+  RCCHECK(rclc_executor_add_subscription(&executor, &subscriber, &msg, &subscription_callback, ON_NEW_DATA));
 }
 
 void loop() {
