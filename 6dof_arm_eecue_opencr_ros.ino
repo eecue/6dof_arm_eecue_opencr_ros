@@ -23,8 +23,9 @@
 
 #define LED_PIN 25
 
-#define RCCHECK(fn) { rcl_ret_t temp_rc = fn; if((temp_rc != RCL_RET_OK)){error_loop();}}
-#define RCSOFTCHECK(fn) { rcl_ret_t temp_rc = fn; if((temp_rc != RCL_RET_OK)){}}
+
+#define RCCHECK(fn) { rcl_ret_t temp_rc = fn; if((temp_rc != RCL_RET_OK)){printf("Failed status on line %d: %d. Aborting.\n",__LINE__,(int)temp_rc);}}
+#define RCSOFTCHECK(fn) { rcl_ret_t temp_rc = fn; if((temp_rc != RCL_RET_OK)){printf("Failed status on line %d: %d. Continuing.\n",__LINE__,(int)temp_rc);}}
 
 Servo shoulder;
 Servo forearm;
@@ -34,7 +35,9 @@ Servo wrist_flex;
 Servo wrist_rotate; 
 
 rcl_subscription_t subscriber;
-sensor_msgs__msg__JointState * msg;
+rcl_subscription_t subscriber_twist;
+sensor_msgs__msg__JointState msg;
+
 rclc_executor_t executor;
 rclc_support_t support;
 rcl_allocator_t allocator;
@@ -51,15 +54,9 @@ void error_loop(){
 }
 
 
-void subscription_callback_0(const void * msgin )
+void subscription_callback(const void * msgin )
 {  
- 	shoulder.write(150);
-  forearm.write(50);
-  elbow.write(80);
-  arm_rotate.write(32); 
-  wrist_flex.write(20);
-  wrist_rotate.write(100);
-
+ 
   const sensor_msgs__msg__JointState * msg = (const sensor_msgs__msg__JointState *)msgin;
 
   // Shoulder starts at 80
@@ -106,35 +103,35 @@ void setup() {
 
 
   // Init header frame id string
-  msg->header.frame_id.capacity = STRING_SIZE;
-  msg->header.frame_id.size = 0;
-  msg->header.frame_id.data = (char*) malloc(STRING_SIZE * sizeof(char));
+  msg.header.frame_id.capacity = STRING_SIZE;
+  msg.header.frame_id.size = 0;
+  msg.header.frame_id.data = (char*) malloc(STRING_SIZE * sizeof(char));
 
   // Init sequence of strings
-  msg->name.capacity = MAX_ENTITIES;
-  msg->name.size = 0;
-  msg->name.data = (rosidl_runtime_c__String*) malloc(MAX_ENTITIES * sizeof(rosidl_runtime_c__String));
+  msg.name.capacity = MAX_ENTITIES;
+  msg.name.size = 0;
+  msg.name.data = (rosidl_runtime_c__String*) malloc(MAX_ENTITIES * sizeof(rosidl_runtime_c__String));
 
   // Init each string of the sequence of strings
   for(int i = 0; i < MAX_ENTITIES; i++)
   {
-      msg->name.data[i].capacity = STRING_SIZE;
-      msg->name.data[i].size = 0;
-      msg->name.data[i].data = (char*) malloc(STRING_SIZE * sizeof(char));
+      msg.name.data[i].capacity = STRING_SIZE;
+      msg.name.data[i].size = 0;
+      msg.name.data[i].data = (char*) malloc(STRING_SIZE * sizeof(char));
   }
 
   // Init doubles sequences
-  msg->position.capacity = MAX_ENTITIES;
-  msg->position.size = 0;
-  msg->position.data = (double*) malloc(MAX_ENTITIES * sizeof(double));
+  msg.position.capacity = MAX_ENTITIES;
+  msg.position.size = 0;
+  msg.position.data = (double*) malloc(MAX_ENTITIES * sizeof(double));
 
-  msg->velocity.capacity = MAX_ENTITIES;
-  msg->velocity.size = 0;
-  msg->velocity.data = (double*) malloc(MAX_ENTITIES * sizeof(double));
+  msg.velocity.capacity = MAX_ENTITIES;
+  msg.velocity.size = 0;
+  msg.velocity.data = (double*) malloc(MAX_ENTITIES * sizeof(double));
 
-  msg->effort.capacity = MAX_ENTITIES;
-  msg->effort.size = 0;
-  msg->effort.data = (double*) malloc(MAX_ENTITIES * sizeof(double));
+  msg.effort.capacity = MAX_ENTITIES;
+  msg.effort.size = 0;
+  msg.effort.data = (double*) malloc(MAX_ENTITIES * sizeof(double));
   
   
   allocator = rcl_get_default_allocator();
@@ -152,9 +149,10 @@ void setup() {
     ROSIDL_GET_MSG_TYPE_SUPPORT(sensor_msgs, msg, JointState),
     "eecue_6dof_arm_subscriber"));
 
+
   // create executor
   RCCHECK(rclc_executor_init(&executor, &support.context, 1, &allocator));
-  RCCHECK(rclc_executor_add_subscription(&executor, &subscriber, &msg, &subscription_callback_0, ON_NEW_DATA));
+  RCCHECK(rclc_executor_add_subscription(&executor, &subscriber, &msg, &subscription_callback, ON_NEW_DATA));
 }
 
 
