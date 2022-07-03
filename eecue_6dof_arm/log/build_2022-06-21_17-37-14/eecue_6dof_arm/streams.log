@@ -1,0 +1,45 @@
+[0.023s] Invoking command in '/Users/eecue/Documents/robotics/opencr_eecue/6dof_arm_eecue_opencr_ros/eecue_6dof_arm/build/eecue_6dof_arm': CONDA_PROMPT_MODIFIER=(ros_env) SHLVL=2 _=/Users/eecue/mambaforge/envs/ros_env/bin/env __CF_USER_TEXT_ENCODING=0x1F5:0x0:0x0 /Users/eecue/mambaforge/envs/ros_env/bin/cmake --build /Users/eecue/Documents/robotics/opencr_eecue/6dof_arm_eecue_opencr_ros/eecue_6dof_arm/build/eecue_6dof_arm -- -j10 -l10
+[0.068s] -- Found ament_cmake: 1.1.5 (/Users/eecue/mambaforge/envs/ros_env/share/ament_cmake/cmake)
+[0.087s] -- Using PYTHON_EXECUTABLE: /Users/eecue/mambaforge/envs/ros_env/bin/python3
+[0.140s] -- Found ament_lint_auto: 0.10.6 (/Users/eecue/mambaforge/envs/ros_env/share/ament_lint_auto/cmake)
+[0.195s] -- Added test 'copyright' to check source files copyright and LICENSE
+[0.207s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[0.207s] -- Configured cppcheck include dirs: 
+[0.207s] -- Configured cppcheck exclude dirs and/or files: 
+[0.218s] -- Added test 'cpplint' to check C / C++ code against the Google style
+[0.218s] -- Configured cpplint exclude dirs and/or files: 
+[0.219s] -- Added test 'flake8' to check Python code syntax and style conventions
+[0.222s] -- Added test 'lint_cmake' to check CMake code style
+[0.223s] -- Added test 'pep257' to check Python code against some of the style conventions in PEP 257
+[0.234s] -- Added test 'uncrustify' to check C / C++ code style
+[0.234s] -- Configured uncrustify additional arguments: 
+[0.236s] -- Added test 'xmllint' to check XML markup files
+[0.237s] -- Configuring done
+[0.244s] -- Generating done
+[0.246s] -- Build files have been written to: /Users/eecue/Documents/robotics/opencr_eecue/6dof_arm_eecue_opencr_ros/eecue_6dof_arm/build/eecue_6dof_arm
+[0.272s] Invoked command in '/Users/eecue/Documents/robotics/opencr_eecue/6dof_arm_eecue_opencr_ros/eecue_6dof_arm/build/eecue_6dof_arm' returned '0': CONDA_PROMPT_MODIFIER=(ros_env) SHLVL=2 _=/Users/eecue/mambaforge/envs/ros_env/bin/env __CF_USER_TEXT_ENCODING=0x1F5:0x0:0x0 /Users/eecue/mambaforge/envs/ros_env/bin/cmake --build /Users/eecue/Documents/robotics/opencr_eecue/6dof_arm_eecue_opencr_ros/eecue_6dof_arm/build/eecue_6dof_arm -- -j10 -l10
+[0.319s] Invoking command in '/Users/eecue/Documents/robotics/opencr_eecue/6dof_arm_eecue_opencr_ros/eecue_6dof_arm/build/eecue_6dof_arm': CONDA_PROMPT_MODIFIER=(ros_env) SHLVL=2 _=/Users/eecue/mambaforge/envs/ros_env/bin/env __CF_USER_TEXT_ENCODING=0x1F5:0x0:0x0 /Users/eecue/mambaforge/envs/ros_env/bin/cmake --install /Users/eecue/Documents/robotics/opencr_eecue/6dof_arm_eecue_opencr_ros/eecue_6dof_arm/build/eecue_6dof_arm
+[0.329s] -- Install configuration: ""
+[0.329s] -- Up-to-date: /Users/eecue/Documents/robotics/opencr_eecue/6dof_arm_eecue_opencr_ros/eecue_6dof_arm/install/eecue_6dof_arm/share/eecue_6dof_arm/src
+[0.329s] -- Up-to-date: /Users/eecue/Documents/robotics/opencr_eecue/6dof_arm_eecue_opencr_ros/eecue_6dof_arm/install/eecue_6dof_arm/share/eecue_6dof_arm/src/description
+[0.329s] -- Installing: /Users/eecue/Documents/robotics/opencr_eecue/6dof_arm_eecue_opencr_ros/eecue_6dof_arm/install/eecue_6dof_arm/share/eecue_6dof_arm/src/description/eecue_6dof_arm.urdf
+[0.329s] -- Up-to-date: /Users/eecue/Documents/robotics/opencr_eecue/6dof_arm_eecue_opencr_ros/eecue_6dof_arm/install/eecue_6dof_arm/share/eecue_6dof_arm/launch
+[0.329s] -- Installing: /Users/eecue/Documents/robotics/opencr_eecue/6dof_arm_eecue_opencr_ros/eecue_6dof_arm/install/eecue_6dof_arm/share/eecue_6dof_arm/launch/display.launch.py
+[0.329s] -- Up-to-date: /Users/eecue/Documents/robotics/opencr_eecue/6dof_arm_eecue_opencr_ros/eecue_6dof_arm/install/eecue_6dof_arm/share/eecue_6dof_arm/rviz
+[0.329s] -- Up-to-date: /Users/eecue/Documents/robotics/opencr_eecue/6dof_arm_eecue_opencr_ros/eecue_6dof_arm/install/eecue_6dof_arm/share/eecue_6dof_arm/rviz/urdf_config.rviz
+[0.329s] -- Installing: /Users/eecue/Documents/robotics/opencr_eecue/6dof_arm_eecue_opencr_ros/eecue_6dof_arm/install/eecue_6dof_arm/share/ament_index/resource_index/package_run_dependencies/eecue_6dof_arm
+[0.330s] -- Installing: /Users/eecue/Documents/robotics/opencr_eecue/6dof_arm_eecue_opencr_ros/eecue_6dof_arm/install/eecue_6dof_arm/share/ament_index/resource_index/parent_prefix_path/eecue_6dof_arm
+[0.330s] -- Up-to-date: /Users/eecue/Documents/robotics/opencr_eecue/6dof_arm_eecue_opencr_ros/eecue_6dof_arm/install/eecue_6dof_arm/share/eecue_6dof_arm/environment/ament_prefix_path.sh
+[0.330s] -- Installing: /Users/eecue/Documents/robotics/opencr_eecue/6dof_arm_eecue_opencr_ros/eecue_6dof_arm/install/eecue_6dof_arm/share/eecue_6dof_arm/environment/ament_prefix_path.dsv
+[0.330s] -- Up-to-date: /Users/eecue/Documents/robotics/opencr_eecue/6dof_arm_eecue_opencr_ros/eecue_6dof_arm/install/eecue_6dof_arm/share/eecue_6dof_arm/environment/path.sh
+[0.330s] -- Installing: /Users/eecue/Documents/robotics/opencr_eecue/6dof_arm_eecue_opencr_ros/eecue_6dof_arm/install/eecue_6dof_arm/share/eecue_6dof_arm/environment/path.dsv
+[0.330s] -- Up-to-date: /Users/eecue/Documents/robotics/opencr_eecue/6dof_arm_eecue_opencr_ros/eecue_6dof_arm/install/eecue_6dof_arm/share/eecue_6dof_arm/local_setup.bash
+[0.331s] -- Up-to-date: /Users/eecue/Documents/robotics/opencr_eecue/6dof_arm_eecue_opencr_ros/eecue_6dof_arm/install/eecue_6dof_arm/share/eecue_6dof_arm/local_setup.sh
+[0.331s] -- Up-to-date: /Users/eecue/Documents/robotics/opencr_eecue/6dof_arm_eecue_opencr_ros/eecue_6dof_arm/install/eecue_6dof_arm/share/eecue_6dof_arm/local_setup.zsh
+[0.331s] -- Installing: /Users/eecue/Documents/robotics/opencr_eecue/6dof_arm_eecue_opencr_ros/eecue_6dof_arm/install/eecue_6dof_arm/share/eecue_6dof_arm/local_setup.dsv
+[0.331s] -- Installing: /Users/eecue/Documents/robotics/opencr_eecue/6dof_arm_eecue_opencr_ros/eecue_6dof_arm/install/eecue_6dof_arm/share/eecue_6dof_arm/package.dsv
+[0.331s] -- Up-to-date: /Users/eecue/Documents/robotics/opencr_eecue/6dof_arm_eecue_opencr_ros/eecue_6dof_arm/install/eecue_6dof_arm/share/ament_index/resource_index/packages/eecue_6dof_arm
+[0.331s] -- Up-to-date: /Users/eecue/Documents/robotics/opencr_eecue/6dof_arm_eecue_opencr_ros/eecue_6dof_arm/install/eecue_6dof_arm/share/eecue_6dof_arm/cmake/eecue_6dof_armConfig.cmake
+[0.332s] -- Up-to-date: /Users/eecue/Documents/robotics/opencr_eecue/6dof_arm_eecue_opencr_ros/eecue_6dof_arm/install/eecue_6dof_arm/share/eecue_6dof_arm/cmake/eecue_6dof_armConfig-version.cmake
+[0.332s] -- Installing: /Users/eecue/Documents/robotics/opencr_eecue/6dof_arm_eecue_opencr_ros/eecue_6dof_arm/install/eecue_6dof_arm/share/eecue_6dof_arm/package.xml
+[0.334s] Invoked command in '/Users/eecue/Documents/robotics/opencr_eecue/6dof_arm_eecue_opencr_ros/eecue_6dof_arm/build/eecue_6dof_arm' returned '0': CONDA_PROMPT_MODIFIER=(ros_env) SHLVL=2 _=/Users/eecue/mambaforge/envs/ros_env/bin/env __CF_USER_TEXT_ENCODING=0x1F5:0x0:0x0 /Users/eecue/mambaforge/envs/ros_env/bin/cmake --install /Users/eecue/Documents/robotics/opencr_eecue/6dof_arm_eecue_opencr_ros/eecue_6dof_arm/build/eecue_6dof_arm
